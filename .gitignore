@@ -1,0 +1,12 @@
+
+/.idea/
+/.mvn/
+/src/
+/mvnw.cmd
+/mvnw
+/spring-cloud.iml
+/*/.mvn/
+/*/target/
+/*/mvnw.cmd
+/*/mvnw
+/*/src/test/
