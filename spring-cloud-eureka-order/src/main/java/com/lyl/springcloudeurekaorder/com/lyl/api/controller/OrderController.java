@@ -38,10 +38,10 @@ public class OrderController {
 //        return result;
         String url = "http://member/getMember";
         String forObject = restTemplate.getForObject(url, String.class);
-//        System.out.println(forObject);
-//        ServiceInstance member = loadBalancerClient.choose("YH-20161128LOBL:member");
-//        String str = "host:" + member.getHost() + ">>>>>>Port" + member.getPort() + ":" + member.getServiceId()+">>>>>>"+forObject;
         System.out.println(forObject);
+        ServiceInstance member = loadBalancerClient.choose("YH-20161128LOBL:member");
+        String str = "host:" + member.getHost() + ">>>>>>Port" + member.getPort() + ":" + member.getServiceId()+">>>>>>"+forObject;
+        System.out.println(str);
         return forObject;
     }
 }
