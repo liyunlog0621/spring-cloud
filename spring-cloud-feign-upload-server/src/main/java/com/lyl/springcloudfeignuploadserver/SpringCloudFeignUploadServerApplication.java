@@ -1,4 +1,4 @@
-package com.lyl.springcloudmanyfeigneurekaserver;
+package com.lyl.springcloudfeignuploadserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
 @EnableEurekaServer
-public class SpringCloudManyFeignEurekaServerApplication {
+public class SpringCloudFeignUploadServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudManyFeignEurekaServerApplication.class, args);
+        SpringApplication.run(SpringCloudFeignUploadServerApplication.class, args);
     }
 
 }

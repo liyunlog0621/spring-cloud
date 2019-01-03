@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lyl</groupId>
-    <artifactId>spring-cloud-many-feign-eureka-server</artifactId>
+    <artifactId>spring-cloud-feign-upload-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-many-feign-eureka-server</name>
+    <name>spring-cloud-feign-upload-provider</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -30,11 +30,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>2.0.2.RELEASE</version>
         </dependency>
-
     </dependencies>
 
     <build>
