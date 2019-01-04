@@ -10,17 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class HelloController
-{
+public class HelloController {
     @Autowired
     private IHelloService userService;
 
     @GetMapping("/getProviderData")
-    public List<String> getProviderData(){
-        return userService.getProviderData();
+    public List<String> getProviderData() {
+        List<String> providerData = userService.getProviderData();
+        return providerData;
     }
 
-
+    @GetMapping("/getUserById")
+    public String getProviderData(int id) {
+        String userToCommandKey = userService.getUserToCommandKey(id);
+        return userToCommandKey;
+    }
 
     @RequestMapping(value = "/helloService", method = RequestMethod.GET)
     public String getHelloServiceData() {
