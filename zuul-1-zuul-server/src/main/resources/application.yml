@@ -12,35 +12,35 @@ eureka:
   instance:
     prefer-ip-address: true
 # 单个实例ServiceId注册
-#zuul:
-#  # 使用prefix指定前缀
+zuul:
+  # 使用prefix指定前缀
 #  prefix: /pre
-#  routes:
-#    client-a:
-#      path: /client/**
-#      serviceId: zuul-1-client-a
+  routes:
+    client-a:
+      path: /client/**
+      serviceId: zuul-1-client-a
 
 #多实例路由配置
-zuul:
-  routes:
-    ribbon-route:
-      path: /ribbon/**
-      serviceId: ribbon-route
-    #开启错误重试
-  retryable: true
-
-ribbon:
-  eureka:
-    enabled: false
-  #同一个服务重试的次数
-  MaxAutoRetries: 1
-  #切换相同服务数量
-  MaxAutoRetriesNextServer: 1
-
-ribbon-route:
-  ribbon:
-    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
-    #Ribbon LB Strategy
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-    #client services for Ribbon LB
-    listOfServers: http://localhost:7070,http://localhost:7071
+#zuul:
+#  routes:
+#    ribbon-route:
+#      path: /ribbon/**
+#      serviceId: ribbon-route
+#    #开启错误重试
+#  retryable: true
+#
+#ribbon:
+#  eureka:
+#    enabled: false
+#  #同一个服务重试的次数
+#  MaxAutoRetries: 1
+#  #切换相同服务数量
+#  MaxAutoRetriesNextServer: 1
+#
+#ribbon-route:
+#  ribbon:
+#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#    #Ribbon LB Strategy
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    #client services for Ribbon LB
+#    listOfServers: http://localhost:7070,http://localhost:7071
