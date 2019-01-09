@@ -37,14 +37,14 @@
 //                    log.info("we noticed a new file, " + file);
 //                    return file;
 //                })
-//                //通过众所周知的MessageChannel实例，将请求路由到两个可能的集成流之一，这两个流来源于文件的扩展
-////                .routeToRecipients(
-////                        spec -> spec
-////                                .recipient(csv(),
-////                                        msg -> hasExt(msg.getPayload(), ".csv"))
-////                                .recipient(txt(),
-////                                        msg -> hasExt(msg.getPayload(), ".txt")))
-////                .get();
+////                通过众所周知的MessageChannel实例，将请求路由到两个可能的集成流之一，这两个流来源于文件的扩展
+//                .routeToRecipients(
+//                        spec -> spec
+//                                .recipient(csv(),
+//                                        msg -> hasExt(msg.getPayload(), ".csv"))
+//                                .recipient(txt(),
+//                                        msg -> hasExt(msg.getPayload(), ".txt")))
+//                .get();
 //    }
 //
 //    private boolean hasExt(Object f, String ext) {

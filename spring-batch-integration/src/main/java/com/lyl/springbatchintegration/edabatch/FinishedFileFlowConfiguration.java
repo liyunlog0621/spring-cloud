@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.integration.dsl.StandardIntegrationFlow;
 import org.springframework.integration.file.FileHeaders;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -33,9 +34,9 @@ public class FinishedFileFlowConfiguration {
     @Bean
     IntegrationFlow finishedJobsFlow(
             BatchChannels channels,
-            @Value("${completed-directory:${HOME}/Desktop/completed}") File finished,
+            @Value("${completed-directory}") File finished,
             JdbcTemplate jdbcTemplate) {
-        return IntegrationFlows
+        StandardIntegrationFlow standardIntegrationFlow = IntegrationFlows
                 .from(channels.completed())
                 .handle(JobExecution.class,
                         (je, headers) -> {
@@ -54,6 +55,7 @@ public class FinishedFileFlowConfiguration {
                             contacts.forEach(log::info);
                             return null;
                         }).get();
+        return standardIntegrationFlow;
     }
 
 }

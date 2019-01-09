@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.integration.dsl.StandardIntegrationFlow;
 import org.springframework.integration.file.FileHeaders;
 
 import java.io.File;
@@ -25,19 +26,17 @@ public class InvalidFileFlowConfiguration {
 
     @Bean
     IntegrationFlow invalidFlows(BatchChannels channels,
-                                 @Value("${error-directory:${HOME}/Desktop/errors}") File errors) {
-        // @formatter:off
-        return IntegrationFlows
+                                 @Value("${error-directory}") File errors) {
+        StandardIntegrationFlow standardIntegrationFlow = IntegrationFlows
                 .from(channels.invalid())
                 .handle(JobExecution.class,
                         (je, headers) -> {
-                            String ogFileName = String.class.cast(headers
-                                    .get(FileHeaders.ORIGINAL_FILE));
+                            String ogFileName = String.class.cast(headers.get(FileHeaders.ORIGINAL_FILE));
                             File file = new File(ogFileName);
                             mv(file, errors);
                             return null;
                         }).get();
-        // @formatter:on
+        return standardIntegrationFlow;
     }
 
 }
