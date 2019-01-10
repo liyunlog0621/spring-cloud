@@ -23,24 +23,25 @@ public class UserController {
 
     /**
      * 用于演示Feign的Get请求多参数传递
+     *
      * @param user
      * @return
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addUser( @RequestBody @ApiParam(name="用户",value="传入json格式",required=true) User user){
+    public String addUser(@RequestBody @ApiParam(name = "用户", value = "传入json格式", required = true) User user) {
         return userFeignService.addUser(user);
     }
 
     /**
      * 用于演示Feign的Post请求多参数传递
+     *
      * @param user
      * @return
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateUser( @RequestBody @ApiParam(name="用户",value="传入json格式",required=true) User user){
+    public String updateUser(@RequestBody @ApiParam(name = "用户", value = "传入json格式", required = true) User user) {
         return userFeignService.updateUser(user);
     }
-
 
 
 }

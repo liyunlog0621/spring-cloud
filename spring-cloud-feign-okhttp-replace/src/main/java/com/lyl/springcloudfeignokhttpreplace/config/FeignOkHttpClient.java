@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
 @AutoConfigureBefore(FeignAutoConfiguration.class)
 public class FeignOkHttpClient {
     @Bean
-    public okhttp3.OkHttpClient okHttpClient(){
+    public okhttp3.OkHttpClient okHttpClient() {
         return new okhttp3.OkHttpClient.Builder()
                 //设置连接超时
                 .connectTimeout(60, TimeUnit.SECONDS)
                 //设置读超时
                 .readTimeout(60, TimeUnit.SECONDS)
                 //设置写超时
-                .writeTimeout(60,TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
                 //是否自动重连
                 .retryOnConnectionFailure(true)
                 .connectionPool(new ConnectionPool())

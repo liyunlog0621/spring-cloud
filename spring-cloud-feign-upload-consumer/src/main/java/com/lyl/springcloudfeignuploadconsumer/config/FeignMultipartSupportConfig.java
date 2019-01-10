@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import feign.codec.Encoder;
+
 /**
  * ClassName FeignMultipartSupportConfig
  * Author liyunlong

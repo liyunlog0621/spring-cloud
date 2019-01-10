@@ -49,7 +49,8 @@ public class MashapeEmailValidationService implements EmailValidationService {
                 .header("X-Mashape-Key", mashapeKey).build();
 
         ParameterizedTypeReference<Map<String, Boolean>> ptr =
-                new ParameterizedTypeReference<Map<String, Boolean>>() { };
+                new ParameterizedTypeReference<Map<String, Boolean>>() {
+                };
 
         ResponseEntity<Map<String, Boolean>> responseEntity = restTemplate.exchange(requestEntity, ptr);
 

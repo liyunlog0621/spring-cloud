@@ -20,7 +20,7 @@ public class HelloFeignController {
     private HelloFeignService helloFeignService;
 
     /**
-     *服务消费者对位提供的服务
+     * 服务消费者对位提供的服务
      */
     @GetMapping(value = "/search/github")
     public ResponseEntity<byte[]> searchGithubRepoByStr(@RequestParam("str") String queryStr) {

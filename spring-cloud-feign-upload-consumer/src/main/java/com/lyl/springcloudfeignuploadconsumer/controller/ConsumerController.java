@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  * Version 1.0
  **/
 @RestController
-@Api(value="consumer")
+@Api(value = "consumer")
 public class ConsumerController {
 
     @Autowired
     private UserFeignService userFeignService;
 
     @GetMapping("/consumer/feign")
-    @ApiOperation(value = "文件上传", notes = "请选择文件上传" )
+    @ApiOperation(value = "文件上传", notes = "请选择文件上传")
     public String findByIdBYEurekaServer() {
         return userFeignService.helloFeign();
     }

@@ -16,7 +16,7 @@ eureka:
     fetch-registry: true
   #心跳检测与续约时间
   instance:
-        #Eureka客户端呢想服务器发送心跳的时间间隔，单位为秒(客户端告诉服务端自己按照该规则)
-        lease-renewal-interval-in-seconds: 1
-        #Eureka 服务端在收到最后一次心跳之后等待的时间上线，单位为1秒，超过则剔除（客户端告诉服务端按照此规则）
-        lease-expiration-duration-in-seconds: 2
+    #Eureka客户端呢想服务器发送心跳的时间间隔，单位为秒(客户端告诉服务端自己按照该规则)
+    lease-renewal-interval-in-seconds: 1
+    #Eureka 服务端在收到最后一次心跳之后等待的时间上线，单位为1秒，超过则剔除（客户端告诉服务端按照此规则）
+    lease-expiration-duration-in-seconds: 2

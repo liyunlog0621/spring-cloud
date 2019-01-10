@@ -16,6 +16,7 @@ public class TestController {
     public String add() {
         return "com.lyl.zuul1clienta.controller.TestController-> 返回的数据库:200";
     }
+
     @GetMapping("/update")
     public String udpdate() {
         return "client-a -> 返回的数据库:200";
