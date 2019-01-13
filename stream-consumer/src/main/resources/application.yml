@@ -1,0 +1,12 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: springcloud-stream-consumer
+  cloud:
+    stream:
+      bindings:
+        #指定管道名称
+        my_sendMsg_channel:
+          #指定应用实例属于stream 消费组
+          group: test
