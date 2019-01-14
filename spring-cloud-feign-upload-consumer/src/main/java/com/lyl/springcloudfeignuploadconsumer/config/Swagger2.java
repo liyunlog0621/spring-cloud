@@ -27,6 +27,7 @@ public class Swagger2 {
                         .basePackage("com.lyl.springcloudfeignuploadconsumer.controller"))
                 .paths(PathSelectors.any()).build();
     }
+
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Feign文件上传").description("Feign文件上传")
                 .contact("Software_King@qq.com").version("1.0").build();

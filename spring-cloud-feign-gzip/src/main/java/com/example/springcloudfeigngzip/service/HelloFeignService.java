@@ -12,6 +12,7 @@ public interface HelloFeignService {
     /**
      * content: {"message":"Validation Failed","errors":[{"resource":"Search","field":"q","code":"missing"}],
      * "documentation_url":"https://developer.github.com/v3/search"}
+     *
      * @param queryStr
      * @return
      */

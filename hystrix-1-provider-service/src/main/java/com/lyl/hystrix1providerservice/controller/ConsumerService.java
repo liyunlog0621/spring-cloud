@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface ConsumerService {
 
     @RequestMapping(value = "/helloService", method = RequestMethod.GET)
-     String getHelloServiceData();
+    String getHelloServiceData();
 }

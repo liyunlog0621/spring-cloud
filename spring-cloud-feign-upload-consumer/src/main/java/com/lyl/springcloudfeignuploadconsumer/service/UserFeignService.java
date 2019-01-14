@@ -20,8 +20,8 @@ public interface UserFeignService {
     String helloFeign();
 
     /**
-     *
      * 生成图片验证码
+     *
      * @param imagekey
      * @return
      */

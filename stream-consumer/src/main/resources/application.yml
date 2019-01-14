@@ -10,3 +10,5 @@ spring:
         my_sendMsg_channel:
           #指定应用实例属于stream 消费组
           group: test
+          # 将发送的对象消息转化为Json，方便调试
+          content-type: application/json

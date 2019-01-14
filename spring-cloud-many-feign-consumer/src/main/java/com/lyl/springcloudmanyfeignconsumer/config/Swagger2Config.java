@@ -26,6 +26,7 @@ public class Swagger2Config {
                         .basePackage("com.lyl.springcloudmanyfeignconsumer.controller"))
                 .paths(PathSelectors.any()).build();
     }
+
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Feign多参数传递问题").description("Feign多参数传递问题")
                 .contact("Software_King@qq.com").version("1.0").build();

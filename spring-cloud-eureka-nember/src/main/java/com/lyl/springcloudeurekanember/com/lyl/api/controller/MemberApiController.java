@@ -19,6 +19,6 @@ public class MemberApiController {
 
     @GetMapping("/getMember")
     public String geMember() {
-        return "this is member 我是会员服务！！！"+serverPort;
+        return "this is member 我是会员服务！！！" + serverPort;
     }
 }

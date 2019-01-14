@@ -18,15 +18,15 @@ import org.springframework.web.multipart.MultipartFile;
  * Version 1.0
  **/
 @RestController
-@Api(value="文件上传")
+@Api(value = "文件上传")
 @RequestMapping("/feign")
 public class FeignUploadController {
     @Autowired
     private FileUploadFeignService fileUploadFeignService;
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @ApiOperation(value = "文件上传", notes = "请选择文件上传" )
-    public String imageUpload(@ApiParam(value="文件上传",required = true)  MultipartFile file ) throws Exception{
+    @ApiOperation(value = "文件上传", notes = "请选择文件上传")
+    public String imageUpload(@ApiParam(value = "文件上传", required = true) MultipartFile file) throws Exception {
         return fileUploadFeignService.fileUpload(file);
     }
 }

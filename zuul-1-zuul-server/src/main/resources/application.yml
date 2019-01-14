@@ -14,7 +14,7 @@ eureka:
 # 单个实例ServiceId注册
 zuul:
   # 使用prefix指定前缀
-#  prefix: /pre
+  #  prefix: /pre
   routes:
     client-a:
       path: /client/**

@@ -14,10 +14,9 @@ public class OrderController {
      * 应该通过服务名调用服务
      * ### 服务的别名-服务注册到注册中心的名称
      * spring:
-     *   application:
-     *     name: member
-     *     使用别名去注册中心获取对应的服务调用地址。
-     *
+     * application:
+     * name: member
+     * 使用别名去注册中心获取对应的服务调用地址。
      */
     @Autowired
     private RestTemplate restTemplate;
@@ -40,7 +39,7 @@ public class OrderController {
         String forObject = restTemplate.getForObject(url, String.class);
         System.out.println(forObject);
         ServiceInstance member = loadBalancerClient.choose("YH-20161128LOBL:member");
-        String str = "host:" + member.getHost() + ">>>>>>Port" + member.getPort() + ":" + member.getServiceId()+">>>>>>"+forObject;
+        String str = "host:" + member.getHost() + ">>>>>>Port" + member.getPort() + ":" + member.getServiceId() + ">>>>>>" + forObject;
         System.out.println(str);
         return forObject;
     }
