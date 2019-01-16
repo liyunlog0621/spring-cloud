@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 public class Consumer {
     @Value("${server.port}")
     private String serverPort;
+    int counter = 1;
 
     //监听my_sendMsg_channel 的消息队列
     @StreamListener("my_sendMsg_channel")
@@ -22,7 +23,13 @@ public class Consumer {
     //该注解会消息处理完成之后，向responseMessage这个队列发送消息,消息内容就是该方法的返回值
     @SendTo("responseMessage")
     public String readMsg(String msg) {
-        System.out.println("端口号：" + serverPort + ",消费者获取到生产者投递的消息：" + msg);
-        return "端口号:" + serverPort + ",消费者获取到生产者投递的消息：" + msg;
+        System.out.println("Received: " + msg + ", " + counter);
+        if (counter == 3) {
+            counter = 1;
+            return "测试成功";
+        } else {
+            counter++;
+            throw new RuntimeException("Message consumer failed!");
+        }
     }
 }

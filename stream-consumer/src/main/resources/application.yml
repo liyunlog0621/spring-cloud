@@ -12,3 +12,5 @@ spring:
           group: stream
           # 将发送的对象消息转化为Json，方便调试
           content-type: application/json
+#          consumer:
+#            max-attempts: 1
