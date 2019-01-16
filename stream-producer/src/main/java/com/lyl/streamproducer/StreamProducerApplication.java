@@ -13,5 +13,8 @@ public class StreamProducerApplication {
         SpringApplication.run(StreamProducerApplication.class, args);
     }
 
+
+    //在rabbitMq中有交换机队列
+    //默认以通道的名称创建交换机。消费者启动的时候会随机创建队列名称
 }
 

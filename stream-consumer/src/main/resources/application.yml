@@ -9,7 +9,7 @@ spring:
         #指定管道名称
         my_sendMsg_channel:
           #指定应用实例属于stream 消费组
-          group: stream
+          group: test
           # 将发送的对象消息转化为Json，方便调试
           content-type: application/json
 #          consumer:
