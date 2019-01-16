@@ -1,5 +1,6 @@
 package com.lyl.springstreamerror;
 
+import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,22 +37,30 @@ public class SpringStreamErrorApplication {
          */
         @GetMapping("/sendMessage")
         public String messageWithMQ(@RequestParam String message) {
-            testTopic.output().send(MessageBuilder.withPayload(message).build());
+            testTopic.output().send(MessageBuilder.withPayload(message).setHeader("x-delay", 5000).build());
             return "ok";
         }
 
     }
+
+
 
     /**
      * 消息消费逻辑
      */
     @Component
     static class TestListener {
-
+        private int count = 1;
         @StreamListener(TestTopic.INPUT)
         public void receive(String payload) {
-            System.out.println("Received payload : " + payload);
-            throw new RuntimeException("Message consumer failed!");
+            System.out.println("Received payload : " + payload + ", " + count);
+//            if (count == 3) {
+//                count = 1;
+//                throw new AmqpRejectAndDontRequeueException("tried 3 times failed, send to dlq!");
+//            } else {
+//                count ++;
+//                throw new RuntimeException("Message consumer failed!");
+//            }
         }
 
     }
