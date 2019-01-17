@@ -54,13 +54,13 @@ public class SpringStreamErrorApplication {
         @StreamListener(TestTopic.INPUT)
         public void receive(String payload) {
             System.out.println("Received payload : " + payload + ", " + count);
-//            if (count == 3) {
-//                count = 1;
-//                throw new AmqpRejectAndDontRequeueException("tried 3 times failed, send to dlq!");
-//            } else {
-//                count ++;
-//                throw new RuntimeException("Message consumer failed!");
-//            }
+            if (count == 3) {
+                count = 1;
+                throw new AmqpRejectAndDontRequeueException("tried 3 times failed, send to dlq!");
+            } else {
+                count ++;
+                throw new RuntimeException("Message consumer failed!");
+            }
         }
 
     }
